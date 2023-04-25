@@ -1,25 +1,18 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import ContactForm from './ContactForm/ContactForm';
 import Filter from './Filter/Filter';
 import ContactList from './ContactList/ContactList';
 import { useSelector } from 'react-redux';
-import { getNumber } from './redux/selectors';
+import { getError, getIsLoading, getNumber } from './redux/selectors';
 import { useDispatch } from 'react-redux';
-import { deleteNumber } from './redux/numberSlice';
 import { setFilter } from '../components/redux/filterSlice';
+import { deleteNumber, fetchContacts } from './redux/operations';
 
 const App = () => {
-  const contacts = useSelector(getNumber);
-  const storageRef = useRef(false);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (storageRef.current) {
-      localStorage.setItem('contacts', JSON.stringify(contacts));
-    } else {
-      storageRef.current = true;
-    }
-  }, [contacts]);
+  const isLoading = useSelector(getIsLoading);
+  const error = useSelector(getError);
+  const contact = useSelector(getNumber);
 
   const delateNum = e => {
     e.preventDefault();
@@ -30,6 +23,16 @@ const App = () => {
     const newfilter = e.target.value;
     dispatch(setFilter(newfilter));
   };
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
+
+  const test = [
+    { name: 'dsadas', number: '1231231', isFav: false, id: '6' },
+    { name: 'dasdas', number: '123123', isFav: false, id: '7' },
+    { name: 'dasdasd', number: '12312313', isFav: false, id: '8' },
+  ];
 
   return (
     <div
@@ -48,6 +51,7 @@ const App = () => {
 
       <h2 style={{ color: 'white', margin: '10px' }}>Contacts</h2>
       <Filter onChange={setFilters} />
+      {isLoading && !error && <h4>Loading in progress, please wait...</h4>}
       <ContactList onClick={delateNum} />
     </div>
   );

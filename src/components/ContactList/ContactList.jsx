@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 const ContactList = props => {
   const { onClick } = props;
   const contacts = useSelector(getNumber);
+
   const filter = useSelector(getFilter).value;
 
   return (

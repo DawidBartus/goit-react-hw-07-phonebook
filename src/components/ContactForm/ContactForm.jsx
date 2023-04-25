@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from 'components/ContactForm/ContactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { addNumber } from '../redux/numberSlice';
+// import { addNumber } from '../redux/numberSlice';
 import { getNumber } from 'components/redux/selectors';
+import { addContact } from 'components/redux/operations';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const ContactForm = () => {
     ) {
       alert(`${name} is in your contact list`);
     } else {
-      dispatch(addNumber({ name, number }));
+      dispatch(addContact({ name, number }));
 
       form.reset();
     }
