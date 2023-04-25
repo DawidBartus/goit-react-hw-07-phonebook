@@ -1,0 +1,64 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 340px;
+}
+
+.submit_bttn {
+  width: 40px;
+  background-color: #3da54e;
+  border: 0px;
+  border-radius: 8px;
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.submit_bttn:hover,
+.submit_bttn:focus {
+  background-color: #646363;
+  color: white;
+  outline: #7cff92 1px solid;
+  -webkit-box-shadow: 0px 0px 24px 1px rgba(124, 255, 146, 1);
+  -moz-box-shadow: 0px 0px 24px 1px rgba(124, 255, 146, 1);
+  box-shadow: 0px 0px 24px 1px rgba(124, 255, 146, 1);
+}
+
+.label {
+  color: white;
+  font-weight: bold;
+  padding-left: 5px;
+}
+
+/* .inputName,
+.inputTel,
+.submit_bttn {
+  -webkit-box-shadow: 8px 5px 13px 1px rgba(72, 72, 72, 1);
+  -moz-box-shadow: 8px 5px 13px 1px rgba(72, 72, 72, 1);
+  box-shadow: 8px 5px 13px 1px rgba(72, 72, 72, 1);
+} */
+.inputName,
+.inputTel {
+  height: 30px;
+  font-size: 18px;
+  border-radius: 8px;
+  padding-left: 10px;
+  background-color: #d9d9d9;
+  border: 0px;
+}
+
+.inputTel {
+  width: 290px;
+}
+.telHolder {
+  display: flex;
+}
+.inputName:focus,
+.inputTel:focus {
+  background-color: #646363;
+  outline: #7cff92 1px solid;
+  color: white;
+  -webkit-box-shadow: 0px 0px 24px 1px rgba(124, 255, 146, 1);
+  -moz-box-shadow: 0px 0px 24px 1px rgba(124, 255, 146, 1);
+  box-shadow: 0px 0px 24px 1px rgba(124, 255, 146, 1);
+}
