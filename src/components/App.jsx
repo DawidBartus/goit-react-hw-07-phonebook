@@ -12,7 +12,6 @@ const App = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(getIsLoading);
   const error = useSelector(getError);
-  const contact = useSelector(getNumber);
 
   const delateNum = e => {
     e.preventDefault();
@@ -27,12 +26,6 @@ const App = () => {
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
-
-  const test = [
-    { name: 'dsadas', number: '1231231', isFav: false, id: '6' },
-    { name: 'dasdas', number: '123123', isFav: false, id: '7' },
-    { name: 'dasdasd', number: '12312313', isFav: false, id: '8' },
-  ];
 
   return (
     <div
