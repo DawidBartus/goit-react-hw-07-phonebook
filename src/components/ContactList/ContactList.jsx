@@ -1,14 +1,14 @@
 import React from 'react';
 import style from 'components/ContactList/ContactList.module.css';
 import PropTypes from 'prop-types';
-import { getNumber, getFilter } from '../redux/selectors';
+import { selectNumber, selectFilter } from '../redux/selectors';
 import { useSelector } from 'react-redux';
 
 const ContactList = props => {
   const { onClick } = props;
-  const contacts = useSelector(getNumber);
+  const contacts = useSelector(selectNumber);
 
-  const filter = useSelector(getFilter).value;
+  const filter = useSelector(selectFilter).value;
 
   return (
     <ul className={style.list}>

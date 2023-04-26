@@ -1,7 +1,7 @@
-export const getFilter = state => state.filters;
+export const selectFilter = state => state.filters;
 
-export const getNumber = state => state.numbers.person;
+export const selectNumber = state => state.numbers.person;
 
-export const getIsLoading = state => state.numbers.isLoading;
+export const selectIsLoading = state => state.numbers.isLoading;
 
-export const getError = state => state.numbers.error;
+export const selectError = state => state.numbers.error;

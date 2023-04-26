@@ -2,13 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from 'components/ContactForm/ContactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-// import { addNumber } from '../redux/numberSlice';
-import { getNumber } from 'components/redux/selectors';
+import { selectNumber } from 'components/redux/selectors';
 import { addContact } from 'components/redux/operations';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getNumber);
+  const contacts = useSelector(selectNumber);
 
   const handleSubmit = e => {
     e.preventDefault();

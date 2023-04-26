@@ -3,15 +3,15 @@ import ContactForm from './ContactForm/ContactForm';
 import Filter from './Filter/Filter';
 import ContactList from './ContactList/ContactList';
 import { useSelector } from 'react-redux';
-import { getError, getIsLoading } from './redux/selectors';
+import { selectError, selectIsLoading } from './redux/selectors';
 import { useDispatch } from 'react-redux';
 import { setFilter } from '../components/redux/filterSlice';
 import { deleteNumber, fetchContacts } from './redux/operations';
 
 const App = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(getIsLoading);
-  const error = useSelector(getError);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   const delateNum = e => {
     e.preventDefault();
@@ -44,7 +44,9 @@ const App = () => {
 
       <h2 style={{ color: 'white', margin: '10px' }}>Contacts</h2>
       <Filter onChange={setFilters} />
-      {isLoading && !error && <h4>Loading in progress, please wait...</h4>}
+      {isLoading && !error && (
+        <h4 style={{ color: 'white' }}>Loading in progress, please wait...</h4>
+      )}
       <ContactList onClick={delateNum} />
     </div>
   );
